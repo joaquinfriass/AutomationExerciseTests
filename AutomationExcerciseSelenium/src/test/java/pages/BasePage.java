@@ -59,36 +59,36 @@ public class BasePage {
 
     //Métodos útiles para interactuar con la página
 
-    private WebElement Find(String locator) {
+    protected WebElement find(String locator) {
         //Devolveme ESPERANDO LA CONDICION de que ESTE PRESENTE el elemento localizado por el By.xpath(locator)
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
 
     public void clickElement(String locator) {
-        Find(locator).click();
+        find(locator).click();
     }
 
     public void write(String locator, String keysToSend){
         //Limpia el campo antes de enviar 
-        Find(locator).clear();
-        Find(locator).sendKeys(keysToSend);
+        find(locator).clear();
+        find(locator).sendKeys(keysToSend);
     }
 
     //Selecciona un valor de un dropdown por su atributo "value"
     public void selectFromDropdownByValue(String locator, String value){
-        Select dropdown = new Select(Find(locator));
+        Select dropdown = new Select(find(locator));
         dropdown.selectByValue(value);
     }
     
     //Selecciona un valor de un dropdown por su índice
         public void selectFromDropdownByIndex(String locator, int index){
-        Select dropdown = new Select(Find(locator));
+        Select dropdown = new Select(find(locator));
         dropdown.selectByIndex(index);
     }
 
     //Devuelve el número de opciones en un dropdown
     public int dropdownSize(String locator){
-        Select dropdown = new Select(Find(locator));
+        Select dropdown = new Select(find(locator));
         
         List<WebElement> dropdownOptions = dropdown.getOptions();
         return dropdownOptions.size();
