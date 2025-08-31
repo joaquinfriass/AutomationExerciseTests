@@ -1,3 +1,5 @@
+#TC1, TC5, TC14, TC15
+
 Feature: Login funcionality
 
 Scenario: Register User
