@@ -1,12 +1,15 @@
 package steps;
 
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.*;
+import pages.LoginPage;
 import pages.PrincipalPage;
+import pages.RegisterPage;
 
 public class RegisterSteps {
     
     PrincipalPage principalPage = new PrincipalPage();
+    LoginPage LoginPage = new LoginPage();
+    RegisterPage  RegisterPage = new RegisterPage();
 
 
     @Given("I navigate to www.automationexercise.com")
@@ -30,8 +33,28 @@ public class RegisterSteps {
         principalPage.isNewUserSignupVisible();
     }
 
-    @And("Enter name and email address")
-    public void enterEmailAndNameAddress() {
-        // Ingresar Codigo
+    @And("Enter name {string} and email address {string}")
+    public void enterEmailAndNameAddress(String name, String email) {
+        LoginPage.enterName(name);
+        LoginPage.enterEmail(email);
+    }
+
+    @Then("Click Signup button")
+    public void clickSignupButton() {
+        LoginPage.clickSignupButton();
+    }
+
+    @And("Verify that ENTER ACCOUNT INFORMATION is visible")
+    public void verifyEnterAccountInformation() {
+        // Write code here that turns the phrase above into concrete actions
+        RegisterPage.isEnterAccountInformationVisible();
+    }
+
+    @Then("Fill details: Title {string}, Password {string}, Date of birth {string} {string} {string}")
+    public void fillDetailsTitleNameEmailPasswordDateOfBirth(String title, String password, String day, String month, String year) {
+    
+        RegisterPage.selectTitle(title);
+        RegisterPage.enterPassword(password);
+        RegisterPage.selectDateOfBirth(day, month, year);
     }
 }

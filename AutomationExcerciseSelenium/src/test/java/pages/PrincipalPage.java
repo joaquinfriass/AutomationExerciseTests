@@ -24,5 +24,6 @@ public class PrincipalPage extends BasePage {
     public boolean isNewUserSignupVisible() {
         return find("//h2[normalize-space()='New User Signup!']").isDisplayed();
     }
+    
 
 }
