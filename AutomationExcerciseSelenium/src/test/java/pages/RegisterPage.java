@@ -15,12 +15,20 @@ public class RegisterPage extends BasePage {
     //Locators Address Information
     private String FirstNameInput = "//input[@id='first_name']";
     private String LastNameInput = "//input[@id='last_name']";
+    private String CompanyInput = "//input[@id='company']";
+    private String Address1Input = "//input[@id='address1']";
+    private String Address2Input = "//input[@id='address2']";
     private String CountrySelect = "//select[@id='country']";
     private String StateInput = "//input[@id='state']";
     private String CityInput = "//input[@id='city']";
     private String ZipcodeInput = "//input[@id='zipcode']";
     private String MobileNumberInput = "//input[@id='mobile_number']";
     private String CreateAccountButton = "//button[normalize-space()='Create Account']";
+    private String AccountCreatedMessage = "//b[normalize-space()='Account Created!']";
+    private String ContinueButton = "//a[normalize-space()='Continue']";
+    private String LoggedInAsUsername = "//a[contains(normalize-space(), 'Logged in as')]";
+    private String DeleteAccountButton = "//a[normalize-space()='Delete Account']";
+    private String AccountDeletedMessage = "//b[normalize-space()='Account Deleted!']";
 
     public RegisterPage() {
         super(driver);
@@ -47,4 +55,78 @@ public class RegisterPage extends BasePage {
         selectFromDropdownByValue(MonthsSelect, month);
         selectFromDropdownByValue(YearsSelect, year);
     }
+
+    public void selectNewsletterCheckbox() {
+        clickElement(NewsletterCheckbox);
+    }
+
+    public void selectOffersCheckbox() {
+        clickElement(OffersCheckbox);
+    }
+
+    public void enterFirstName(String firstName) {
+        write(FirstNameInput, firstName);
+    }
+
+    public void enterLastName(String lastName) {
+        write(LastNameInput, lastName);
+    }
+
+    public void enterCompany(String company) {
+        write(CompanyInput, company);
+    }
+
+    public void enterAddress(String address) {
+        write(Address1Input, address);
+    }
+
+    public void enterAddress2(String address2) {
+        write(Address2Input, address2);
+    }
+
+    public void selectCountry(String country) {
+        selectFromDropdownByValue(CountrySelect, country);
+    }
+
+    public void enterState(String state) {
+        write(StateInput, state);
+    }
+
+    public void enterCity(String city) {
+        write(CityInput, city);
+    }
+
+    public void enterZipcode(String zipcode) {
+        write(ZipcodeInput, zipcode);
+    }
+
+    public void enterMobileNumber(String mobileNumber) {
+        write(MobileNumberInput, mobileNumber);
+    }
+
+    public void clickCreateAccountButton() {
+        clickElement(CreateAccountButton);
+    }
+
+    public boolean isAccountCreatedMessageVisible() {
+        return find(AccountCreatedMessage).isDisplayed();
+    }
+
+    public void clickContinueButton() {
+        clickElement(ContinueButton);
+    }
+
+    public void isLoggedInAsUsernameVisible() {
+        find(LoggedInAsUsername).isDisplayed();
+    }
+
+    public void clickDeleteAccountButton() {
+        clickElement(DeleteAccountButton);
+    }
+
+    public boolean isAccountDeletedMessageVisible() {
+        return find(AccountDeletedMessage).isDisplayed();
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.*;
 import pages.LoginPage;
 import pages.PrincipalPage;
@@ -56,5 +57,60 @@ public class RegisterSteps {
         RegisterPage.selectTitle(title);
         RegisterPage.enterPassword(password);
         RegisterPage.selectDateOfBirth(day, month, year);
+    }
+
+    @And("Select checkbox Sign up for our newsletter")
+    public void selectCheckboxSignUpForOurNewsletter() {
+        RegisterPage.selectNewsletterCheckbox();
+    }
+
+    @Then("Select checkbox Receive special offers from our partners")
+    public void selectCheckboxOffersPartners(){
+        RegisterPage.selectOffersCheckbox();
+    }
+
+    @And("Fill details: First name {string}, Last name {string}, Company {string}, Address {string}, Address2 {string}, Country {string}, State {string}, City {string}, Zipcode {string}, Mobile Number {string}")
+    public void fillDetailsAdressInformation(String firstName, String lastName, String company, String address, String address2, String country, String state, String city, String zipcode, String mobileNumber) {
+        RegisterPage.enterFirstName(firstName);
+        RegisterPage.enterLastName(lastName);
+        RegisterPage.enterCompany(company);
+        RegisterPage.enterAddress(address);
+        RegisterPage.enterAddress2(address2);
+        RegisterPage.selectCountry(country);
+        RegisterPage.enterState(state);
+        RegisterPage.enterCity(city);
+        RegisterPage.enterZipcode(zipcode);
+        RegisterPage.enterMobileNumber(mobileNumber);
+    }
+
+    @Then("Click Create Account button")
+    public void clickCreateAccountButton() {
+        RegisterPage.clickCreateAccountButton();
+    }
+
+    @And("Verify that ACCOUNT CREATED! is visible")
+    public void verifyAccountCreatedIsVisible() {
+        RegisterPage.isAccountCreatedMessageVisible();
+    }
+
+    @Then("Click Continue button")
+    public void clickContinueButton() {
+        RegisterPage.clickContinueButton();
+    }
+
+    @And("Verify that Logged in as username is visible")
+    public void verifyLoggedInAsUsernameIsVisible() {
+        RegisterPage.isLoggedInAsUsernameVisible();
+    }
+
+    @When("Click Delete Account button")
+    public void clickDeleteAccountButton() {
+        RegisterPage.clickDeleteAccountButton();
+    }
+
+    @Then("Verify that ACCOUNT DELETED! is visible and click Continue button")
+    public void verifyAccountDeletedIsVisibleAndClickContinueButton() {
+        RegisterPage.isAccountDeletedMessageVisible();
+        RegisterPage.clickContinueButton();
     }
 }
