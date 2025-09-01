@@ -2,7 +2,7 @@
 
 Feature: Login funcionality
 
-Scenario: Register User
+Scenario: Test Case 1: Register User 
     Given I navigate to www.automationexercise.com
     Then Verify that home page is visible successfully
     And Click on Signup Login button
@@ -20,4 +20,5 @@ Scenario: Register User
     And Verify that Logged in as username is visible
     When Click Delete Account button
     Then Verify that ACCOUNT DELETED! is visible and click Continue button
+    
     
