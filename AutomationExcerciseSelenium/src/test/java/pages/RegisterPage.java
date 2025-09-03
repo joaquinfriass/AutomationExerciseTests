@@ -26,7 +26,7 @@ public class RegisterPage extends BasePage {
     private String CreateAccountButton = "//button[normalize-space()='Create Account']";
     private String AccountCreatedMessage = "//b[normalize-space()='Account Created!']";
     private String ContinueButton = "//a[normalize-space()='Continue']";
-    private String LoggedInAsUsername = "//a[contains(normalize-space(), 'Logged in as')]";
+
     private String DeleteAccountButton = "//a[normalize-space()='Delete Account']";
     private String AccountDeletedMessage = "//b[normalize-space()='Account Deleted!']";
 
@@ -114,10 +114,6 @@ public class RegisterPage extends BasePage {
 
     public void clickContinueButton() {
         clickElement(ContinueButton);
-    }
-
-    public void isLoggedInAsUsernameVisible() {
-        find(LoggedInAsUsername).isDisplayed();
     }
 
     public void clickDeleteAccountButton() {

@@ -13,7 +13,9 @@ import pages.BasePage;
     @RunWith(Cucumber.class)
     @CucumberOptions(features = "src/test/resources/features", // Directorio de nuestros archivos .feature
                      glue = "steps", // Paquete donde están los steps
-                     plugin = {"pretty", "html:target/cucumber-reports.html"})
+                     plugin = {"pretty", "html:target/cucumber-reports.html"},
+                     tags = "@login" // Etiquetas para filtrar qué pruebas ejecutar
+                     )
 
                      
 public class TestRunner {

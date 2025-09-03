@@ -2,6 +2,8 @@ package pages;
 
 public class PrincipalPage extends BasePage {
     
+        private String LoggedInAsUsername = "//a[contains(normalize-space(), 'Logged in as')]";
+
     public PrincipalPage() {
         super(driver);
     }
@@ -24,6 +26,14 @@ public class PrincipalPage extends BasePage {
     public boolean isNewUserSignupVisible() {
         return find("//h2[normalize-space()='New User Signup!']").isDisplayed();
     }
+
+        public void isLoggedInAsUsernameVisible() {
+        find(LoggedInAsUsername).isDisplayed();
+    }
     
+    public void clickLogoutButton() {
+        String logoutButton = "//a[normalize-space()='Logout']";
+        clickElement(logoutButton);
+    }
 
 }

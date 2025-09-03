@@ -1,6 +1,6 @@
 #TC1, TC5, TC14, TC15
 
-Feature: Login funcionality
+Feature: Register funcionality
 
 Scenario: Test Case 1: Register User 
     Given I navigate to www.automationexercise.com
